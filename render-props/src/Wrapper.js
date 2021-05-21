@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 
 
-const Wrapper = () =>{
-  const  [count, setCount] = useState(0);
+const Wrapper = (props) =>{
+  const  [count, setCount] = useState(props.count);
 
     return (
         <div>

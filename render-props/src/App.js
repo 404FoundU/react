@@ -4,7 +4,7 @@ import Wrapper from "./Wrapper";
 function App() {
   return (
     <div className="App">
-<Wrapper/>
+<Wrapper count={20}/>
     </div>
   );
 }
