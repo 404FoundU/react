@@ -1,8 +1,8 @@
 import React from "react";
 
-const Counter1 = (props) =>{
+const Counter1 = ({count, incCount}) =>{
 return (
-    <button onClick={props.incCount}>{props.count}</button>
+    <button onClick={incCount}>{count}</button>
 )
 }
 
