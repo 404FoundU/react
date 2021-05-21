@@ -8,7 +8,7 @@ const Wrapper = (props) =>{
   }
     return (
         <div>
-            <button onClick={incCount}>{props.render(count, incCount)}</button>
+            {props.render(count, incCount)}
         </div>
     )
 
