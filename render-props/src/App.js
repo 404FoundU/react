@@ -5,7 +5,7 @@ import Counter1 from "./Counter1";
 function App() {
   return (
     <div className="App">
-<Wrapper render={()=> <Counter1/>}/>
+<Wrapper render={(count, incCount)=> <Counter1 count={count} incCount={incCount}/>}/>
     </div>
   );
 }

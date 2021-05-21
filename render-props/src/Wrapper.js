@@ -6,7 +6,6 @@ const Wrapper = (props) =>{
   const incCount = () => {
       setCount(prevCount => prevCount+1)
   }
-
     return (
         <div>
             <button onClick={incCount}>{props.render(count, incCount)}</button>
