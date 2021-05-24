@@ -1,4 +1,4 @@
-import React, {ReactElement, ReactNode} from 'react';
+import React, {ReactElement, ReactNode, useState} from 'react';
 import './App.css';
 
 
@@ -26,12 +26,27 @@ function Container({heading, children} : ContainerProps): ReactElement {
 }
 
 Container.defaultProps = defaultContainerProps;
+
+
+// Functional props
+function TextWithNumber ({children} :{children: (num: number) => ReactNode}) :ReactElement{
+   const [state, setState] = useState<number >(0)
+    return (
+<div>
+    <div>{children(state)}</div>
+    <div>
+        <button onClick={() =>setState(prevState => prevState+1) }>Add</button>
+    </div>
+</div>
+    )
+}
 function App() {
   return (
     <div >
   <Heading title="unni2" />
       <HeadingContent > <strong>Hi</strong> </HeadingContent>
 <Container>Foo</Container>
+        <TextWithNumber  >{(num: number)=> <div>Number is {num}</div>}</TextWithNumber>
     </div>
   );
 }
