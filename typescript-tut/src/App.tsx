@@ -53,6 +53,24 @@ function TextWithNumber({
     )
 }
 
+//List
+function List<ListItem>({
+    items,
+    render
+              }:{
+    items: ListItem[],
+    render: (item: ListItem) => ReactNode
+    
+}): ReactElement{
+    return(
+        <ul>
+            {items.map((item, index)=> (
+                <li key={index}>{render(item)}</li>
+            ))}
+        </ul>
+    )
+}
+
 function App() {
     return (
         <div>
@@ -62,6 +80,9 @@ function App() {
             <TextWithNumber header={(num: number) => <span> Header {num}</span>} >
                 {(num: number) => <div>Number is {num}</div>}
             </TextWithNumber>
+            <List items={['Unni', 'Unni2', 'Unni3']} render={(item: string) => <div>
+                {item.toLowerCase()}
+            </div>}></List>
         </div>
     );
 };
