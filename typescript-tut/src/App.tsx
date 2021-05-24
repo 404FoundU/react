@@ -38,13 +38,13 @@ function TextWithNumber({
                             children
                         }: {
 
-    header: (num: number) => ReactNode,
+    header?: (num: number) => ReactNode,
     children: (num: number) => ReactNode
 }): ReactElement {
     const [state, setState] = useState<number>(0)
     return (
         <div>
-            <div>{header(state)}</div>
+            <div>{header?.(state)}</div>
             <div>{children(state)}</div>
             <div>
                 <button onClick={() => setState(prevState => prevState + 1)}>Add</button>
@@ -59,11 +59,11 @@ function App() {
             <Heading title="unni2"/>
             <HeadingContent> <strong>Hi</strong> </HeadingContent>
             <Container>Foo</Container>
-            <TextWithNumber header={(num: number) => <span> Header {num}</span>}>
+            <TextWithNumber header={(num: number) => <span> Header {num}</span>} >
                 {(num: number) => <div>Number is {num}</div>}
             </TextWithNumber>
         </div>
     );
-}
+};
 
 export default App;
